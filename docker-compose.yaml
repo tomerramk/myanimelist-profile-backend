@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  myanimelist-profile-backend:
+    image: node:14
+    hostname: myanimelist-profile-backend
+    container_name: myanimelist-profile-backend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/opt/
+    command: ["/bin/sh", "-c", "(cd /opt/ && npm run start:dev)"]
+    env_file:
+      - .env
+    networks:
+      - local_development
+networks:
+  local_development:
+    driver: bridge
