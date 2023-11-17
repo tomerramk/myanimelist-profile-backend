@@ -23,6 +23,7 @@ router.get(
 	async (req: Request, res: Response) => {
 		const username = req.params.username;
 		const page = req.query.page ? parseInt(req.query.page as string) : 1;
+		const status = req.query.status || "";
 		const limit = 25;
 
 		try {
@@ -32,8 +33,9 @@ router.get(
 					headers: { "X-MAL-CLIENT-ID": "14d56d1593e4ef012169f1c095749f1c" },
 					params: {
 						fields: "list_status",
-						limit: limit,
+						limit,
 						offset: (page - 1) * limit,
+						status,
 					},
 				},
 			);
