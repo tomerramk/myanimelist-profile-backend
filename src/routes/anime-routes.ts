@@ -16,4 +16,17 @@ router.get("/anime/:id", async (req: Request, res: Response) => {
 	}
 });
 
+router.get("/anime/pictures/:id", async (req: Request, res: Response) => {
+	const id = req.params.id;
+
+	try {
+		const response = await axios.get(
+			`https://api.jikan.moe/v4/anime/${id}/pictures`,
+		);
+		res.json(response.data);
+	} catch (error) {
+		res.status(500).json({ error: "Internal Server Error" });
+	}
+});
+
 export default router;
