@@ -1,8 +1,8 @@
-import { logger } from "./utils/logger.js";
+import logger from "./utils/logger";
 import express from "express";
 import cors from "cors";
-import animeRoutes from "./routes/anime-routes.js"; // Note the updated import path
-import userRoutes from "./routes/user-routes.js";
+import animeRoutes from "./routes/anime-routes"; // Note the updated import path
+import userRoutes from "./routes/user-routes";
 
 const app = express();
 

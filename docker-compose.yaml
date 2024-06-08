@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   myanimelist-profile-backend:
     image: node:14
@@ -8,7 +7,8 @@ services:
       - 8080:8080
     volumes:
       - ./:/opt/
-    command: ["/bin/sh", "-c", "(cd /opt/ && npm run start:dev)"]
+    working_dir: /opt/sh
+    command: npm run start:dev
     env_file:
       - .env
     networks:

@@ -24,4 +24,4 @@ export const logger: Logger = winston.createLogger({
 	transports: [new winston.transports.Console()],
 });
 
-export default { logger };
+export default logger;
